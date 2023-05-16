@@ -2,6 +2,8 @@
 
 int main(void)
 {
+
     int n = printf("");
-    printf("%d\n");
+    printf("%s", NULL);
+    printf("%d\n", n);
 }

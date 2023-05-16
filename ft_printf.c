@@ -6,7 +6,7 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:55:52 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/05/16 19:22:18 by msilva-c         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:55:36 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_conversion(char c, va_list lst)
 	if (c == 's')
 		return(ft_putstr(va_arg(lst, char *)));
 	if (c == 'p')
-		return(ft_putptr);
+		return(ft_putptr(va_arg(lst, size_t)));
 	if (c == 'd' || c == 'i')
 		return();
 	if (c == 'u')
