@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:03:59 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/05/16 19:35:33 by msilva-c         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:43:13 by duckiemadu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }

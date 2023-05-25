@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 19:05:17 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/05/16 20:02:00 by msilva-c         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:16:02 by duckiemadu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int	ft_putstr(char *str)
 {
-	int	nr;
-
 	if (!str)
-	{
-		ft_putstr("(null)");
-		return (0);
-	}
-	nr = -1;
-	while (str[++nr])
-		ft_putchar(str[nr]);
-	return (nr);
+		return (ft_putstr("(null)"));
+	return (write(1, str, ft_strlen(str)));
 }
+
+/*int main(void)
+{
+	int n = ft_putstr("sup bitch\n");
+	printf("%d", n);
+}*/

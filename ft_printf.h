@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:54:31 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/05/16 19:25:29 by msilva-c         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:47:50 by duckiemadu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
+int	ft_strlen(char *str);
+int ft_putptr(size_t ptr, char *str, int counter, int flag);
+int	ft_putnbr(long nbr);
 
 #endif
