@@ -1,17 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 18:33:07 by msilva-c          #+#    #+#             */
+/*   Updated: 2023/05/29 18:39:05 by msilva-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
-	i =-1;
-	while (str[++i]);
+	i = 0;
+	while (str[i])
+		i++;
 	return (i);
 }
-
-/*#include <stdio.h>
-int main(void)
-{
-	int n = ft_strlen("hello bitch\n");
-	printf("%d", n);
-}*/

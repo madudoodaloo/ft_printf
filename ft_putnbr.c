@@ -1,26 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 17:31:55 by msilva-c          #+#    #+#             */
+/*   Updated: 2023/06/05 20:41:39 by msilva-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_putnbr(long nbr)
+int	ft_putnbr(int n)
 {
-	long int	nb;
-	int			counter;
+	long long int	nbr;
+	int				i;
 
-	counter = 0;
-	nb = nbr;
-	if (nb < 0)
+	nbr = n;
+	i = 0;
+	if (nbr < 0)
 	{
-		counter += ft_putchar('-');
-		nb = -nb;
+		i += ft_putchar('-');
+		nbr = -nbr;
 	}
-	if (nb > 9)
-		counter += ft_putnbr(nb / 10) + ft_putnbr(nb % 10);
+	if (nbr > 9)
+	{
+		i += ft_putnbr(nbr / 10);
+		i += ft_putnbr(nbr % 10);
+	}
 	else
-		counter += ft_putchar(nb + 48);
-	return (counter);
+		i += ft_putchar(nbr + 48);
+	return (i);
 }
-
-/*int main(void)
-{
-	int n = ft_putnbr(-214);
-	printf("\n %d\n", n);
-}*/

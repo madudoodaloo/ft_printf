@@ -5,52 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 17:55:52 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/05/16 19:55:36 by msilva-c         ###   ########.fr       */
+/*   Created: 2023/05/29 16:57:35 by msilva-c          #+#    #+#             */
+/*   Updated: 2023/06/06 23:24:49 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_conversion(char c, va_list lst)
+int	ft_convert(char c, va_list args)
 {
 	if (c == 'c')
-		return(ft_putchar(va_arg(lst, int)));
-	if (c == 's')
-		return(ft_putstr(va_arg(lst, char *)));
-	if (c == 'p')
-		return(ft_putptr(va_arg(lst, size_t)));
-	if (c == 'd' || c == 'i')
-		return();
-	if (c == 'u')
-		return();
-	if (c == 'x')
-		return();
-	if (c == 'X')
-		return(ft_)
-	if (c == '%')
-		return(ft_putchar('%'));
+		return (ft_putchar(va_arg(args, int)));
+	else if (c == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	else if (c == 'i' || c == 'd')
+		return (ft_putnbr(va_arg(args, int)));
+	else if (c == 'u')
+		return (ft_putunsigned(va_arg(args, unsigned int)));
+	else if (c == 'x')
+		return (ft_puthex(va_arg(args, unsigned int), 's'));
+	else if (c == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), 'b'));
+	else if (c == 'p')
+		return (ft_putptr(va_arg(args, unsigned long int)));
+	else if (c == '%')
+		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	lst;
-	int		i;
-	int		nr;
+	int					i;
+	unsigned long int	ret;
+	va_list				args;
 
-	i = -1;
-	nr = 0;
-	va_start(lst, str);
-	while (str[++i])
+	i = 0;
+	ret = 0;
+	va_start(args, str);
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
-			nb += ft_conversion(str[i + 1], lst);
-			i++;
+			ret += ft_convert(str[++i], args);
+			if (!str[i])
+				break ;
 		}
 		else
-			nb += ft_putchar(str[i]);
+			ret += ft_putchar(str[i]);
+		i++;
 	}
-	va_end(lst);
-	return (nr);
+	va_end(args);
+	return (ret);
 }
