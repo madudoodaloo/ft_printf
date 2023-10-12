@@ -6,7 +6,7 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 16:57:35 by msilva-c          #+#    #+#             */
-/*   Updated: 2023/06/06 23:24:49 by msilva-c         ###   ########.fr       */
+/*   Updated: 2023/10/12 13:48:47 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,12 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(args);
 	return (ret);
+}
+
+
+#include <stdio.h>
+int main()
+{
+	if (ft_printf("ola %s, tenho %d que is o nr %x em hexadec\n", "bom dia", 12345, 12345) == printf("ola %s, tenho %d que is o nr %x em hexadec\n", "bom dia", 1245, 12345))
+		printf("great success\n");
 }
