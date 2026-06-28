@@ -21,13 +21,13 @@ int	ft_convert(char c, va_list args)
 	else if (c == 'i' || c == 'd')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'u')
-		return (ft_putunsigned(va_arg(args, unsigned int)));
+		return (ft_putunsigned(va_arg(args, ui)));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(args, unsigned int), 's'));
+		return (ft_puthex(va_arg(args, ui), 's'));
 	else if (c == 'X')
-		return (ft_puthex(va_arg(args, unsigned int), 'b'));
+		return (ft_puthex(va_arg(args, ui), 'b'));
 	else if (c == 'p')
-		return (ft_putptr(va_arg(args, unsigned long int)));
+		return (ft_putptr(va_arg(args, uli)));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (0);
@@ -35,7 +35,7 @@ int	ft_convert(char c, va_list args)
 
 int    ft_printf(const char *str, ...)
 {
-	unsigned long int	ret;
+	int		ret;
 	size_t				i;
 	va_list 			args;
 
