@@ -1,12 +1,8 @@
 NAME = libftprintf.a
-CFLAGS = cc -Wall -Wextra -Werror
-SRCF = $(wildcard *.c)
-OBJF := $(SRCF:.c=.o)
+SRCF = ft_printf.c utils_char.c utils_int.c
+OBJF = $(SRCF:.c=.o)
 
 all: $(NAME)
-
-%.o : %.c
-	cc $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJF)
 	ar -cr $@ $^
@@ -19,11 +15,15 @@ fclean: clean
 
 re: fclean all
 
+test: re
+	cc -Wall -Werror -Wextra main.c libftprintf.a -o test
+	./test
+
 setup: 
 	@make
 	@echo
 	@make clean
 	@clear
-	@echo "make successfull: libft.a created 🫧"
+	@echo "make successfull: libftprintf.a created 🫧"
 	@echo "In order to use libftprintf.a, compile your code with libftprintf.a"
 	@echo "Don't forget your .c files must have #include \"[path_to_libftprintf.h]\"."

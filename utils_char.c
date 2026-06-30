@@ -12,17 +12,39 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_count(int printed)
 {
-	return (write(1, &c, 1));
+	static int	count;
+	int			total;
+
+	if (printed == -1)
+	{
+		total = count;
+		count = 0;
+		return (total);
+	}
+	count += printed;
+	return (count);
 }
 
-int	ft_putstr(char *str)
+void ft_putchar(char c)
 {
-	int	i;
+	ft_count(write(1, &c, 1));
+}
+
+size_t	ft_strlen(char *str)
+{
+	size_t	i;
 
 	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void ft_putstr(char *str)
+{
 	if (!str)
-		return (ft_putstr("(null)"));
-	return (write(1, str, ft_strlen(str)));
+		str = "(null)";
+	ft_count(write(1, str, ft_strlen(str)));
 }

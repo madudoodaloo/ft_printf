@@ -12,32 +12,31 @@
 
 #include "ft_printf.h"
 
-int	ft_convert(char c, va_list args)
+void	ft_convert(char c, va_list args)
 {
 	if (c == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		return (ft_putstr(va_arg(args, char *)));
+		ft_putstr(va_arg(args, char *));
 	else if (c == 'i' || c == 'd')
-		return (ft_putnbr(va_arg(args, int)));
+		ft_putnbr(va_arg(args, int));
 	else if (c == 'u')
-		return (ft_putunsigned(va_arg(args, ui)));
+		ft_putunsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(args, ui), 's'));
+		ft_puthex(va_arg(args, unsigned int), 's');
 	else if (c == 'X')
-		return (ft_puthex(va_arg(args, ui), 'b'));
+		ft_puthex(va_arg(args, unsigned int), 'b');
 	else if (c == 'p')
-		return (ft_putptr(va_arg(args, uli)));
+		ft_putptr(va_arg(args, unsigned long int));
 	else if (c == '%')
-		return (ft_putchar('%'));
-	return (0);
+		ft_putchar('%');
+	return ;
 }
 
 int    ft_printf(const char *str, ...)
 {
-	int		ret;
-	size_t				i;
-	va_list 			args;
+	size_t		i;
+	va_list 	args;
 
 	i = 0;
 	va_start(args, str);
@@ -45,14 +44,14 @@ int    ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			ret += ft_convert(str[++i], args);
+			ft_convert(str[++i], args);
 			if (!str[i])
 				break ;
 		}
 		else
-			ret += ft_putchar(str[i]);
+			ft_putchar(str[i]);
 		i++;
 	}
 	va_end(args);
-	return (ret);
+	return (ft_count(-1));
 }

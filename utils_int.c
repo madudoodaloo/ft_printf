@@ -12,40 +12,38 @@
 
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+void	ft_putnbr(int n)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-
-int	ft_putnbr(int n)
-{
-	long long int	nbr;
-	int				i;
+	long int	nbr;
 
 	nbr = n;
-	i = 0;
 	if (nbr < 0)
 	{
-		i += ft_putchar('-');
+		ft_putchar('-');
 		nbr = -nbr;
 	}
-	if (nbr > 9)
+	if (nbr < 10)
 	{
-		i += ft_putnbr(nbr / 10);
-		i += ft_putnbr(nbr % 10);
+		ft_putchar(nbr + 48);
+		return ;
 	}
-	else
-		i += ft_putchar(nbr + 48);
-	return (i);
+	ft_putnbr(nbr / 10);
+	ft_putnbr(nbr % 10);
 }
 
-int	ft_puthex(uli nbr, int c)
+void	ft_putunsigned(unsigned int nbr)
+{
+	if (nbr < 10)
+	{
+		ft_putchar(nbr + 48);
+		return ;
+	}
+	ft_putunsigned(nbr / 10);
+	ft_putunsigned(nbr % 10);
+}
+
+
+void	ft_puthex(unsigned long int nbr, int c)
 {
 	char	*str;
 
@@ -54,30 +52,21 @@ int	ft_puthex(uli nbr, int c)
 	else
 		str = B_HEX;
 	if (nbr < 16)
-		return (ft_putchar(str[nbr]));
-	return (ft_puthex(nbr / 16, c) + ft_putchar(str[nbr % 16]));
-}
-
-
-int	ft_putunsigned(ui nbr)
-{
-	int	i;
-
-	i = 0;
-	if (nbr > 9)
 	{
-		i += ft_putunsigned(nbr / 10);
-		i += ft_putunsigned(nbr % 10);
+		ft_putchar(str[nbr]);
+		return ;
 	}
-	else
-		i += ft_putchar(nbr + 48);
-	return (i);
+	ft_puthex(nbr / 16, c);
+	ft_putchar(str[nbr % 16]);
 }
 
-int	ft_putptr(uli nbr)
+void	ft_putptr(unsigned long int nbr)
 {
 	if (!nbr)
-		return (ft_putstr("(nil)"));
-	else
-		return (ft_putstr("0x") + ft_puthex(nbr, 's'));
+	{
+		ft_putstr("(nil)");
+		return ;
+	}
+	ft_putstr("0x");
+	ft_puthex(nbr, 's');
 }

@@ -10,78 +10,88 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include <stdio.h>
+#include <stdio.h>
+#include "../ft_printf.h"
+
 int main(void)
 {
 	int ret;
+	int ft;
+	char *str;
 
-	ret = printf("");
+	str = "";
+	ret = printf("%s", str);
+	ft= ft_printf("%s", str);
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: nothing
 
 	ret = printf("%%");
+	ft= ft_printf("%%");
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: %
 
 	ret = printf("/");
+	ft = ft_printf("/");
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: /
 
 	ret = printf("/0");
+	ft = ft_printf("/0");
+
 	printf("\n");
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: /0
 
-	char *str = NULL;
+	str = NULL;
 	ret = printf("%s", str);
+	ft = ft_printf("%s", str);
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: (null)
 
 	ret = printf("%p", str);
+	ft = ft_printf("%p", str);
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: (nil)
 
 	str = "ola";
 	ret = printf("%s", str);
+	ft = ft_printf("%s", str);
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: ola
 
 	ret = printf("%p", str);
+	ft= ft_printf("%p", str);
+
 	printf("\n");
-	printf("%i\n", ret);
+	printf("%i | %i\n", ret, ft);
+	printf("std: %i | ft_ %i\n", ret, ft);
+
 	//output: 0x5ee6c9fd8010
 
 	//ret is always the nr of printed chars.
-} */
-
-#include <stdio.h>
-#include <limits.h>
-
-int main(void)
-{
-    long long i = 0;
-    // INT_MAX + 5
-    long long target = (long long)INT_MAX + 5; 
-    
-    // This is what your internal ft_printf counter would do
-    int my_ft_printf_counter = 0; 
-
-    while (i < target)
-    {
-        putchar('A');
-        my_ft_printf_counter++;
-        i++;
-    }
-    
-    // We print to stderr so it bypasses the normal stdout redirection
-    fprintf(stderr, "\n\n--- LOOP FINISHED ---\n");
-    fprintf(stderr, "Actual bytes sent: %lld\n", i);
-    fprintf(stderr, "Your counter wrapped around to: %d\n", my_ft_printf_counter);
-    
-    return (0);
-}
+} 

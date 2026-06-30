@@ -16,25 +16,23 @@
 # define S_HEX "0123456789abcdef"
 # define B_HEX "0123456789ABCDEF"
 
-typedef unsigned int ui
-typedef uli uli
-
 # include <unistd.h> // write
 # include <stdlib.h> // malloc
 # include <stdarg.h> // va_
 # include <stdio.h>  // printf
 # include <limits.h> // macros
 
+void	ft_convert(char c, va_list args);
 int	ft_printf(const char *str, ...);
-int	ft_convert(char c, va_list args);
 
-int	ft_putchar(char c);
-int	ft_putstr(char *str);
-
-int	ft_strlen(char *str);
-int	ft_putnbr(int n);
-int	ft_putunsigned(ui nbr);
-int	ft_puthex(uli nbr, int c);
-int	ft_putptr(uli nbr);
+/* utils_char.c */
+size_t	ft_strlen(char *str);
+int		ft_count(int printed);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
+void	ft_putnbr(int n);
+void	ft_putunsigned(unsigned int nbr);
+void	ft_puthex(unsigned long int nbr, int c);
+void	ft_putptr(unsigned long int nbr);
 
 #endif

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.h                                           :+:      :+:    :+:   */
+/*   isolada.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: masilva- <masilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 01:00:06 by masilva-          #+#    #+#             */
-/*   Updated: 2026/06/28 01:00:06 by masilva-         ###   ########.fr       */
+/*   Created: 2026/06/30 22:24:56 by masilva-          #+#    #+#             */
+/*   Updated: 2026/06/30 22:24:56 by masilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTER_H
-# define TESTER_H
+#include "ft_printf.h"
 
-
-typedef struct s_test {
-	char *name
-	void *test
+int main(void)
+{
+	int ret =  ft_printf("ola\n");
+	printf("%d\n", ret);
 }
-
-
-#endif

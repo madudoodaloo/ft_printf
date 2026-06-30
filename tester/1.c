@@ -24,10 +24,8 @@
 int main(void)
 {
     long long i = 0;
-    // INT_MAX + 5
     long long target = (long long)INT_MAX + 5; 
     
-    // This is what your internal ft_printf counter would do
     int my_ft_printf_counter = 0; 
 
     while (i < target)
@@ -37,7 +35,6 @@ int main(void)
         i++;
     }
     
-    // We print to stderr so it bypasses the normal stdout redirection
     fprintf(stderr, "\n\n--- LOOP FINISHED ---\n");
     fprintf(stderr, "Actual bytes sent: %lld\n", i);
     fprintf(stderr, "Your counter wrapped around to: %d\n", my_ft_printf_counter);
