@@ -81,13 +81,34 @@ int main(void)
 ```
 
 ## Algorithm and Data Structures
-`ft_printf` is a variadic function. This means it receives a certain first argument (with a specified )
+`ft_printf` is a variadic function.
+
+*what is the difference between the printf buffer management and my ft_printf?*
+This means it receives a certain first argument (in this case, a string), followed by a variable number os arguments.
+Unlike libc printf, my ft_printf prints on terminal the content as it goes through the variables - instead of redirecting it to a buffer that is only flushed upon error, '\n', when it's full, before input is read and on the end of the program. Despite not managing it the same way, it does have the behaviour as printf upon error - it just prints the output faster on the terminal, as it doesn't pile up information in the buffer.
+
+*Data structure wise*, i implemented a static variable to keep track of all printed characters on stdout, depending on write() return value - making sure it only increments when a byte was written onto the terminal.
 
 
 ## Resources
 ### Online documentation
-https://medium.com/@sreehema2025/understanding-buffers-in-c-why-your-printf-might-not-show-up-immediately-98c4d9d60d75
+#### Buffering & Output Stream Controls
+* [Medium — Understanding Buffers in C: Why Your Printf Might Not Show Up Immediately](https://medium.com/@sreehema2025/understanding-buffers-in-c-why-your-printf-might-not-show-up-immediately-98c4d9d60d75)
+* [Linux Manual Pages — printf(3)](https://man7.org/linux/man-pages/man3/printf.3.html)
+* [GeeksforGeeks — Buffer in C Programming](https://www.geeksforgeeks.org/c/buffer-in-c-programming/)
 
+#### Makefile Rules & File Pattern Matching
+* [Earthly — Using Makefile Wildcards](https://earthly.dev/blog/using-makefile-wildcards/)
+* [Wikipedia — Glob (Programming)](https://en.wikipedia.org/wiki/Glob_(programming))
+
+#### Variadic Architecture & Argument Parsing
+* [GeeksforGeeks — Variadic Functions in C](https://www.geeksforgeeks.org/c/variadic-functions-in-c/)
+* [Linux Manual Pages — stdarg(3)](https://man7.org/linux/man-pages/man3/stdarg.3.html)
+* [Tutorialspoint — C Standard Library: Macro va_arg](https://www.tutorialspoint.com/c_standard_library/c_macro_va_arg.htm)
+* [Gustedt — va_arg Functions and Macros](https://gustedt.wordpress.com/2010/08/04/va_arg-functions-and-macros/)
+* [Quora — How does the va_arg macro in C know the bounds of the variable arguments passed](https://www.quora.com/How-does-the-va_arg-macro-in-C-know-the-bound-of-the-variable-arguments-passed-I-try-to-implement-my-own-version-of-va_arg-but-I-am-not-able-to-determine-the-last-argument-to-be-pointed-by-va_list-AP-Mine-goes)
+* [Stack Overflow — How does va_arg actually work in variadic functions](https://stackoverflow.com/questions/68514906/how-does-va-arg-actually-work-in-variadic-functions)
+* [Stack Overflow — How are variadic variables represented on the stack](https://stackoverflow.com/questions/63056235/how-are-variadic-variables-represented-on-the-stack)
 ### AI Usage
 I used AI to help me format this `Readme.md` .
 In regards to code development, no AI was used.
