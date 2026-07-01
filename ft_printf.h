@@ -22,8 +22,10 @@
 # include <stdio.h>  // printf
 # include <limits.h> // macros
 
+/* -R CheckForbiddenSourceHeader */
+
 void	ft_convert(char c, va_list args);
-int	ft_printf(const char *str, ...);
+int		ft_printf(const char *str, ...);
 
 /* utils_char.c */
 size_t	ft_strlen(char *str);

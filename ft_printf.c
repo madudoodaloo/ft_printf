@@ -27,7 +27,7 @@ void	ft_convert(char c, va_list args)
 	else if (c == 'X')
 		ft_puthex(va_arg(args, unsigned int), 'b');
 	else if (c == 'p')
-		ft_putptr(va_arg(args, unsigned long int));
+		ft_putptr((unsigned long int)va_arg(args, void *));
 	else if (c == '%')
 		ft_putchar('%');
 	return ;

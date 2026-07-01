@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SRCF = ft_printf.c utils_char.c utils_int.c
+SRCF = ft_printf.c ft_utils_char.c ft_utils_int.c
 OBJF = $(SRCF:.c=.o)
 
 all: $(NAME)
